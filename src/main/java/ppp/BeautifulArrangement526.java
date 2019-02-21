@@ -3,7 +3,7 @@ package ppp;
 /**
  * Created by 祁连山 on 2019/2/21.
  */
-public class BeautifulArrangement {
+public class BeautifulArrangement526 {
     int count;
 
     public int countArrangement(int N) {
