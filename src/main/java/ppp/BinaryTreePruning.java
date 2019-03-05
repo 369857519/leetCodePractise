@@ -1,5 +1,7 @@
 package ppp;
 
+import Utils.TreeNode;
+
 public class BinaryTreePruning {
 
 	public TreeNode pruneTree(TreeNode root) {

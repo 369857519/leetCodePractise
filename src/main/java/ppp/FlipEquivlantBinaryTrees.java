@@ -1,5 +1,7 @@
 package ppp;
 
+import Utils.TreeNode;
+
 public class FlipEquivlantBinaryTrees {
 
 	//[1,2,3,4,5,6,null,null,null,7,8]

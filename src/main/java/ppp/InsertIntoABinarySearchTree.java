@@ -1,6 +1,8 @@
 package ppp;
 
 
+import Utils.TreeNode;
+
 public class InsertIntoABinarySearchTree {
 
 	public TreeNode insertIntoBST(TreeNode root, int val) {
