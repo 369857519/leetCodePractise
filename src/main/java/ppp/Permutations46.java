@@ -9,35 +9,31 @@ import java.util.Stack;
 
 public class Permutations46 {
 
-	public static void main(String[] args) {
-		Permutations46 permutations46 = new Permutations46();
-		List<List<Integer>> list = permutations46.permute(new int[]{1, 1, 2});
-	}
+    public static void main(String[] args) {
+        Permutations46 permutations46 = new Permutations46();
+        List<List<Integer>> list = permutations46.permute(new int[]{1, 2, 3});
+    }
 
-	public List<List<Integer>> permute(int[] nums) {
-		List<List<Integer>> list = new ArrayList();
-		List<Integer> tempList = new ArrayList<>();
-		Arrays.sort(nums);
-		getList(list, tempList, nums, new boolean[nums.length]);
-		return list;
-	}
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+        permute(list, temp, nums);
+        return list;
+    }
 
-	public void getList(List<List<Integer>> permutes, List<Integer> numRecord, int[] nums,
-		boolean[] used) {
-		if (nums.length == numRecord.size()) {
-			permutes.add(new ArrayList<>(numRecord));
-		} else {
-			for (int i = 0; i < nums.length; i++) {
-				if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
-					continue;
-				}
-				used[i] = true;
-				numRecord.add(nums[i]);
-				getList(permutes, numRecord, nums, used);
-				used[i] = false;
-				numRecord.remove(numRecord.size() - 1);
-			}
-		}
-	}
+    public void permute(List<List<Integer>> list, List<Integer> temp, int[] nums) {
+        if (temp.size() == nums.length) {
+            list.add(new ArrayList<>(temp));
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                if(temp.contains(nums[i]))continue;
+                temp.add(nums[i]);
+                permute(list, temp, nums);
+                temp.remove(temp.size() - 1);
+            }
+        }
+    }
+
+
 }
 
