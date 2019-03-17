@@ -10,20 +10,16 @@ import java.util.Map;
  */
 public class WordLoadder127 {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        Map<String,List<String>> map= new HashMap<>();
-        for (int i = 0; i < wordList.size(); i++) {
-            List<String> currentList=new ArrayList<>();
-            for (int j = 0; j < wordList.size(); j++) {
-                if (ifOneDif(wordList.get(i), wordList.get(j))) {
-                    currentList.add(wordList.get(j));
-                }
-            }
-            map.put(wordList.get(i),currentList);
-        }
+        boolean[] used=new boolean[]{};
+
         return 0;
     }
 
-    public boolean ifOneDif(String a, String b) {
+    public boolean find(String a,String b){
+        return true;
+    }
+
+    public boolean ifOneLetterDif(String a, String b) {
         int count = 0;
         for (int i = 0; i < a.length(); i++) {
             if (a.charAt(i) == b.charAt(i)) {
