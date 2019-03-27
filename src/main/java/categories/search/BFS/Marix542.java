@@ -1,9 +1,9 @@
-package categories.search;
+package categories.search.BFS;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class marix542 {
+public class Marix542 {
 
 	//BFS
 	public int[][] updateMatrix(int[][] matrix) {
