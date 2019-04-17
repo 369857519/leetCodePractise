@@ -8,35 +8,42 @@ import java.util.*;
 public class CourseS207 {
     public static void main(String[] args) {
         CourseS207 courseS207=new CourseS207();
-        boolean res= courseS207.canFinish(3,new int[][]{{0,2},{1,2},{2,0}});
+        boolean res= courseS207.canFinish(3,new int[][]{{1,0},{2,1}});
     }
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        List<Node> nodes=new ArrayList<>();
-        for(int i=0;i<numCourses;i++){
-            nodes.add(new Node(i,new ArrayList<>()));
-        }
+        int[] inDe=new int[numCourses];
         for(int i=0;i<prerequisites.length;i++){
-            nodes.get(prerequisites[i][1]).next.add(nodes.get(prerequisites[i][0]));
+            inDe[prerequisites[i][1]]++;
         }
-        for(Node node:nodes){
-            if(!checkCycle(node,numCourses)){
-                return false;
+        while(true){
+            for(int i=0;i<numCourses;i++){
+                if(inDe[i]==0){
+                    for(int j=0;j<prerequisites.length;j++){
+                        int[] temp=prerequisites[j];
+                        if(temp[0]==i){
+                            inDe[temp[1]]--;
+                            temp[0]=-1;
+                        }
+                    }
+                    inDe[i]=-1;
+                }
+            }
+            //判断目前是否还有入度为0的元素，如果没有了，break
+            boolean hasZero=false;
+            for(int i=0;i<inDe.length;i++){
+                if(inDe[i]==0){
+                    hasZero=true;
+                }
+            }
+            if(!hasZero){
+                break;
             }
         }
-        return true;
-    }
-    public boolean checkCycle(Node node,int length){
-        int[] record=new int[length];
-        Queue<Node> queue=new LinkedList();
-        queue.offer(node);
-        while (!queue.isEmpty()){
-            Node currentNode=queue.poll();
-            if(record[node.val]==1){
+        for(int i=0;i<inDe.length;i++){
+            if(inDe[i]!=-1){
                 return false;
             }
-            record[node.val]=1;
-            queue.addAll(node.next);
         }
         return true;
     }
