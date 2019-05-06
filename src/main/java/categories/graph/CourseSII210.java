@@ -1,31 +1,27 @@
 package categories.graph;
 
-import java.util.*;
-
 /**
- * Created by 祁连山 on 2019/4/15.
+ * Created by 祁连山 on 2019/4/17.
  */
-public class CourseS207 {
-    public static void main(String[] args) {
-        CourseS207 courseS207=new CourseS207();
-        boolean res= courseS207.canFinish(3,new int[][]{{1,0},{2,1}});
-    }
-
-    public boolean canFinish(int numCourses, int[][] prerequisites) {
+public class CourseSII210 {
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
         int[] inDe=new int[numCourses];
         for(int i=0;i<prerequisites.length;i++){
-            inDe[prerequisites[i][1]]++;
+            inDe[prerequisites[i][0]]++;
         }
+        int currentIndex=0;
+        int[] res=new int[numCourses];
         while(true){
             for(int i=0;i<numCourses;i++){
                 if(inDe[i]==0){
                     for(int j=0;j<prerequisites.length;j++){
                         int[] temp=prerequisites[j];
-                        if(temp[0]==i){
-                            inDe[temp[1]]--;
-                            temp[0]=-1;
+                        if(temp[1]==i){
+                            inDe[temp[0]]--;
+                            temp[1]=-1;
                         }
                     }
+                    res[currentIndex++]=i;
                     inDe[i]=-1;
                 }
             }
@@ -42,9 +38,9 @@ public class CourseS207 {
         }
         for(int i=0;i<inDe.length;i++){
             if(inDe[i]!=-1){
-                return false;
+                return new int[0];
             }
         }
-        return true;
+        return res;
     }
 }
