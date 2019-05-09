@@ -1,5 +1,7 @@
 package categories.BinarySearch;
 
+import java.util.Arrays;
+
 public class SearchRangePosition34 {
 
 	public static void main(String[] args) {
@@ -45,7 +47,6 @@ public class SearchRangePosition34 {
 			if(nums[end]==target)return end;
 			return -1;
 		}
-
 		int middleIndex = Math.round((end - start) / 2) + start;
 		if (target > nums[middleIndex]) {
 			return binarySearch(nums, middleIndex+1, end, target);
