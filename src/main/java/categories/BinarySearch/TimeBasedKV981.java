@@ -12,7 +12,7 @@ class TimeBasedKV981 {
 	}
 
 	public String get(String key, int timestamp) {
-
+		return null;
 	}
 }
 
