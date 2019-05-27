@@ -6,11 +6,13 @@ public class MakeSqure473 {
 
 	public static void main(String[] args) {
 		MakeSqure473 makeSqure473 = new MakeSqure473();
-		boolean res = makeSqure473.makesquare(new int[]{1, 1, 2, 2, 6});
+		boolean res = makeSqure473.makesquare(
+			new int[]{1569462, 2402351, 9513693, 2220521, 7730020, 7930469, 1040519, 5767807,
+				876240, 350944, 4674663, 4809943, 8379742, 3517287, 8034755});
 	}
 
 	public boolean makesquare(int[] nums) {
-		if(nums.length<4){
+		if (nums.length < 4) {
 			return false;
 		}
 		int sum = 0;
