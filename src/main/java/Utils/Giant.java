@@ -8,8 +8,9 @@ public class Giant {
 	//719
 	//4
 	//450
-	//使用栈遍历树，调用栈存储技术，二分排序
+	//使用栈遍历树，调用栈存储技术
+	//二分排序
 	//684
 	//473
-	//862. Shortest Subarray with Sum at Least K
+	//862 Shortest Subarray with Sum at Least K->Sliding Window
 }
