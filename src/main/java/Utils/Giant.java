@@ -13,4 +13,5 @@ public class Giant {
 	//684
 	//473
 	//862 Shortest Subarray with Sum at Least K->Sliding Window
+	//307 segment-tree
 }
