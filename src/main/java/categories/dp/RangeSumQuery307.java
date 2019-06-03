@@ -9,14 +9,6 @@ public class RangeSumQuery307 {
 		res = numArray.sumRange(0, 2);
 	}
 
-	//nput
-	//["NumArray","update","update","update","sumRange","update","sumRange","update","sumRange","sumRange","update"]
-	//[[[7,2,7,2,0]],[4,6],[0,2],[0,9],[4,4],[3,8],[0,4],[4,1],[0,3],[0,4],[0,4]]
-	//Output
-	//[null,null,null,null,6,null,27,null,21,28,null]
-	//Expected
-	//[null,null,null,null,6,null,32,null,26,27,null]
-
 	int[] preSums;
 	int[] nums;
 
