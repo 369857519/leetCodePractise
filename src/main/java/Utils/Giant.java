@@ -12,7 +12,7 @@ public class Giant {
 	//二分排序
 	//684
 	//473
-	//862 Shortest Subarray with Sum at Least K->Sliding Window
+	//862 Shortest Subarray with Sum at Least K->Sliding Window/monotonic queue
 	//307 segment-tree->需要听一下讲解
 	//LRU->解决
 }
