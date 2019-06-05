@@ -4,7 +4,7 @@ public class QuickSort {
 
 	public static void main(String[] args) {
 		QuickSort quickSort = new QuickSort();
-		quickSort.quickSort(new int[]{3, 7, 1, 8, 15,9,22,10,88});
+		quickSort.quickSort(new int[]{3, 4, 5, 1, 7,10,22,1231,32,1,1,2});
 	}
 
 	public void quickSort(int[] nums) {
@@ -18,11 +18,11 @@ public class QuickSort {
 		}
 		int pivot = l;
 		while (l < r) {
-			if (nums[l] < nums[pivot]) {
+			if (nums[l] <= nums[pivot]) {
 				l++;
 				continue;
 			}
-			if (nums[r] >= nums[pivot]) {
+			if (nums[r] > nums[pivot]) {
 				r--;
 				continue;
 			}
@@ -30,11 +30,12 @@ public class QuickSort {
 			nums[l] = nums[r];
 			nums[r] = temp;
 		}
-		int temp = nums[r];
-		nums[r] = nums[pivot];
+		int temp = nums[r-1];
+		nums[r-1] = nums[pivot];
 		nums[pivot] = temp;
-		sort(start, r, nums);
-		sort(r + 1, end, nums);
+
+		sort(start, r-1, nums);
+		sort(r, end, nums);
 	}
 
 }
