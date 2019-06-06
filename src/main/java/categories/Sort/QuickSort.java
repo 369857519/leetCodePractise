@@ -4,7 +4,7 @@ public class QuickSort {
 
 	public static void main(String[] args) {
 		QuickSort quickSort = new QuickSort();
-		quickSort.quickSort(new int[]{3, 4, 5, 1, 7,10,22,1231,32,1,1,2});
+		quickSort.quickSort(new int[]{3, 4, 5, 1, 7, 10, 22, 1231, 32, 1, 1, 2});
 	}
 
 	public void quickSort(int[] nums) {
@@ -26,16 +26,16 @@ public class QuickSort {
 				r--;
 				continue;
 			}
-			int temp = nums[l];
-			nums[l] = nums[r];
-			nums[r] = temp;
+			swap(l,r,nums);
 		}
-		int temp = nums[r-1];
-		nums[r-1] = nums[pivot];
-		nums[pivot] = temp;
-
-		sort(start, r-1, nums);
+		swap(pivot,r-1,nums);
+		sort(start, r - 1, nums);
 		sort(r, end, nums);
 	}
 
+	public void swap(int l, int r, int[] nums) {
+		int temp = nums[l];
+		nums[l] = nums[r];
+		nums[r] = temp;
+	}
 }
