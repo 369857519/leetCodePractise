@@ -13,10 +13,8 @@ public class FindPrime762 {
 			int count = 0;
 			int current = i;
 			while (current != 0) {
-				if ((current & 1) == 1) {
-					count++;
-				}
-				current = current >>> 1;
+				count++;
+				current = current & (current - 1);
 			}
 			res += isPrime(count) ? 1 : 0;
 		}
@@ -24,7 +22,7 @@ public class FindPrime762 {
 	}
 
 	public boolean isPrime(int n) {
-		if(n==1){
+		if (n == 1) {
 			return false;
 		}
 		for (int i = 2; i * i <= n; i++) {
