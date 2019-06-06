@@ -8,7 +8,7 @@ public class MergeSort {
 	}
 
 	public void mergeSort(int[] nums) {
-		sort(0, nums.length - 1, nums);
+		int[] res = sort(0, nums.length - 1, nums);
 	}
 
 	public int[] sort(int start, int end, int[] nums) {
@@ -16,26 +16,22 @@ public class MergeSort {
 			return new int[]{nums[start]};
 		}
 		int mid = start + end >>> 1;
-		int count = 0;
 		int[] left = sort(start, mid, nums);
 		int[] right = sort(mid + 1, end, nums);
 		int[] res = new int[left.length + right.length];
-		int i = 0;
-		int j = 0;
-		while (count <= end - start) {
+		int i = 0, j = 0, index = 0;
+		while (index <= end - start) {
 			if (i >= left.length) {
-				res[count++] = right[j++];
+				res[index++] = right[j++];
 			} else if (j >= right.length) {
-				res[count++] = left[i++];
+				res[index++] = left[i++];
 			} else {
 				if (left[i] > right[j]) {
-					res[count] = right[j];
-					i++;
+					res[index] = right[j++];
 				} else {
-					res[count] = left[i];
-					j++;
+					res[index] = left[i++];
 				}
-				count++;
+				index++;
 			}
 		}
 		return res;
