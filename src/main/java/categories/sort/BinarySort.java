@@ -1,6 +1,4 @@
-package categories.Sort;
-
-import java.util.Arrays;
+package categories.sort;
 
 public class BinarySort {
 

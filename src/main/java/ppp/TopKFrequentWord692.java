@@ -26,7 +26,7 @@ public class TopKFrequentWord692 {
 				hash.put(words[i], 1);
 			}
 		}
-		PriorityQueue<Pair<String, Integer>> priorityQueue = new PriorityQueue<>(hash.size(),
+		PriorityQueue<Pair<String, Integer>> priorityQueue = new PriorityQueue<>(k,
 			new Comparator<Pair<String, Integer>>() {
 				@Override
 				public int compare(Pair<String, Integer> o1, Pair<String, Integer> o2) {

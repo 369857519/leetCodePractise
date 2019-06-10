@@ -1,4 +1,4 @@
-package categories.Sort;
+package categories.sort;
 
 public class QuickSort {
 
