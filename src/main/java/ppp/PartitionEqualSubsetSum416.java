@@ -5,6 +5,9 @@ import java.util.List;
 
 public class PartitionEqualSubsetSum416 {
 
+	public static void main(String[] args) {
+
+	}
 	//  https://juejin.im/post/5b40c99ee51d45190b615f33
 	//	Input: [1, 5, 11, 5]
 	//
