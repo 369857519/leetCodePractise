@@ -9,38 +9,36 @@ import java.util.Map;
  * Created by 祁连山 on 2019/3/16.
  */
 public class PhoneNumber17 {
-    public static void main(String[] args) {
-        PhoneNumber17 phoneNumber17 = new PhoneNumber17();
-        List<String> res = phoneNumber17.letterCombinations("");
-    }
 
-    public List<String> letterCombinations(String digits) {
-        Map<String, String[]> map = new HashMap<>();
-        map.put("2", new String[]{"a", "b", "c"});
-        map.put("3", new String[]{"d", "e", "f"});
-        map.put("4", new String[]{"g", "h", "i"});
-        map.put("5", new String[]{"j", "k", "l"});
-        map.put("6", new String[]{"m", "n", "o"});
-        map.put("7", new String[]{"p", "q", "r", "s"});
-        map.put("8", new String[]{"t", "u", "v"});
-        map.put("9", new String[]{"w", "x", "y", "z"});
-        combinate(map, digits, 0, "");
-        return resArr;
-    }
+	public static void main(String[] args) {
+		PhoneNumber17 phoneNumber17 = new PhoneNumber17();
+		List<String> res = phoneNumber17.letterCombinations("27");
+	}
 
-    List<String> resArr = new ArrayList<>();
+	public List<String> letterCombinations(String digits) {
+		if (digits.length() == 0) {
+			return new ArrayList<>();
+		}
+		Map<Integer, Character> startMap = new HashMap<>();
+		char[] letters = {'a', 'd', 'g', 'j', 'm', 'p', 't', 'w'};
+		return search(new ArrayList<>(), "", digits.split(""), 0, letters);
+	}
 
-    public void combinate(Map<String, String[]> map, String digits, int currentIndex, String res) {
-        if(res.equals("")){
-            return;
-        }
-        if (currentIndex == digits.length()) {
-            resArr.add(res);
-            return;
-        }
-        String[] currentArr = map.get(String.valueOf(digits.charAt(currentIndex)));
-        for (int i = 0; i < currentArr.length; i++) {
-            combinate(map, digits, currentIndex + 1, res + currentArr[i]);
-        }
-    }
+	public List<String> search(List<String> record, String recorStr, String[] digits, int index,
+		char[] letters) {
+		if (recorStr.length() == digits.length) {
+			record.add(recorStr);
+			return record;
+		}
+		int limit = 3;
+		if (digits[index].equals("7") || digits[index].equals("9")) {
+			limit = 4;
+		}
+		for (int i = 0; i < limit; i++) {
+			recorStr += (char) (letters[Integer.parseInt(digits[index]) - 2] + i);
+			search(record, recorStr, digits, index + 1, letters);
+			recorStr = recorStr.substring(0, recorStr.length() - 1);
+		}
+		return record;
+	}
 }
