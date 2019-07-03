@@ -1,4 +1,4 @@
-package categories.BinarySearch;
+package categories.binarySearch;
 
 public class Search2DMatrix {
 

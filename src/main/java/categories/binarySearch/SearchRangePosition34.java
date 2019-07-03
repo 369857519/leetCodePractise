@@ -1,6 +1,4 @@
-package categories.BinarySearch;
-
-import java.util.Arrays;
+package categories.binarySearch;
 
 public class SearchRangePosition34 {
 

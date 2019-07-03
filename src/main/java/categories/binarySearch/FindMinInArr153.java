@@ -1,4 +1,4 @@
-package categories.BinarySearch;
+package categories.binarySearch;
 
 /**
  * Created by 祁连山 on 2019/5/12.

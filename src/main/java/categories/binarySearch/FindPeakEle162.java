@@ -1,4 +1,4 @@
-package categories.BinarySearch;
+package categories.binarySearch;
 
 public class FindPeakEle162 {
 	public static void main(String[] args) {

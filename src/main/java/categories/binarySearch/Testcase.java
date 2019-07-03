@@ -1,4 +1,4 @@
-package categories.BinarySearch;
+package categories.binarySearch;
 
 public class Testcase {
 	public static int[]  test = new int[]{
