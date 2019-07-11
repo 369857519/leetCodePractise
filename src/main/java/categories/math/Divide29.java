@@ -7,6 +7,9 @@ public class Divide29 {
 		int a = divide29.add(Integer.MAX_VALUE, 1);
 		int b = divide29.multiply(3, 100);
 		int c = divide29.divide(10, -3);
+		int d = divide29.divide(2147483647, 2);
+
+
 	}
 
 	//a^b 异或：获得本轮计算中，不进位的所有位
@@ -51,6 +54,12 @@ public class Divide29 {
 	}
 
 	public int divide(int dividend, int divisor) {
+		if (dividend == 0 || divisor == 1) {
+			return dividend;
+		}
+		if (divisor == -1) {
+			return dividend == Integer.MIN_VALUE ? Integer.MAX_VALUE : -dividend;
+		}
 		boolean neg = (dividend > 0) ^ (divisor > 0);
 		if (dividend < 0) {
 			dividend = -dividend;
@@ -77,8 +86,9 @@ public class Divide29 {
 			q |= (1 << i);
 			dividend -= (divisor << i);
 		}
-		if(neg)
+		if (neg) {
 			return -q;
+		}
 		return q;
 	}
 }
