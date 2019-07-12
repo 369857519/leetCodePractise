@@ -17,4 +17,5 @@ public class Giant {
 	//LRU->解决
 	//877,950,37
 	//29
+	//trie
 }
