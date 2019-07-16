@@ -18,4 +18,5 @@ public class Giant {
 	//877,950,37
 	//29
 	//trie
+	//加 减 乘 除 pow的实现
 }
