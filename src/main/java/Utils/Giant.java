@@ -19,4 +19,6 @@ public class Giant {
 	//29
 	//trie
 	//加 减 乘 除 pow的实现
+	//八皇后
+	//背包
 }
