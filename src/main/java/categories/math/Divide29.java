@@ -4,7 +4,7 @@ public class Divide29 {
 
 	public static void main(String[] args) {
 		Divide29 divide29 = new Divide29();
-		int a = divide29.add(Integer.MAX_VALUE, 1);
+		int a = divide29.add(11, 1);
 		int b = divide29.multiply(3, 100);
 		int c = divide29.divide(10, -3);
 		int d = divide29.divide(2147483647, 2);
@@ -43,52 +43,39 @@ public class Divide29 {
 	public int multiply(int a, int b) {
 		int res = 0;
 		int count = 0;
-		while (b != 0) {
-			if ((b & 1) == 1) {
-				res = add(res, a << count);
+		while (a != 0) {
+			if ((a & 1) == 1) {
+				res += b << count;
 			}
+			a = a >> 1;
 			count++;
-			b = b >> 1;
 		}
 		return res;
 	}
 
 	public int divide(int dividend, int divisor) {
-		if (dividend == 0 || divisor == 1) {
-			return dividend;
+		if (dividend == Integer.MIN_VALUE && divisor == -1) {
+			return Integer.MAX_VALUE;
 		}
-		if (divisor == -1) {
-			return dividend == Integer.MIN_VALUE ? Integer.MAX_VALUE : -dividend;
-		}
-		boolean neg = (dividend > 0) ^ (divisor > 0);
-		if (dividend < 0) {
-			dividend = -dividend;
-		}
-		if (divisor < 0) {
-			divisor = -divisor;
-		}
-		if (dividend < divisor) {
-			return 0;
-		}
-
-		int msb;
-		for (msb = 0; msb < 32; msb++) {
-			if ((divisor << msb) > dividend) {
-				break;
-			}
-		}
-
-		int q = 0;
-		for (int i = msb; i >= 0; i--) {
-			if ((divisor << i) > dividend) {
-				continue;
-			}
-			q |= (1 << i);
-			dividend -= (divisor << i);
-		}
-		if (neg) {
-			return -q;
-		}
-		return q;
+		boolean isSameSign = (dividend < 0) == (divisor < 0);
+		int res = divideHelper(-Math.abs(dividend), -Math.abs(divisor));
+		return isSameSign ? res : -res;
 	}
+
+	private int divideHelper(int dividend, int divisor) {
+		int res = 0;
+		int currentDivisor = divisor;
+		while (dividend <= divisor) {
+			int temp = 0;
+			while ((currentDivisor << 1) >= dividend && (currentDivisor << 1) > 0) {
+				temp <<= 1;
+				currentDivisor <<= 1;
+			}
+			dividend -= currentDivisor;
+			res += temp;
+			currentDivisor = divisor;
+		}
+		return res;
+	}
+
 }
