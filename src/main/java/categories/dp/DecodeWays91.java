@@ -1,4 +1,4 @@
-package categories.search.DFS;
+package categories.dp;
 
 public class DecodeWays91 {
 
