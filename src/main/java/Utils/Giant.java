@@ -20,8 +20,9 @@ public class Giant {
 	//trie
 	//加 减 乘 除 pow的实现
 	//八皇后
-	//背包
 	//图书馆排序
 	//找零钱问题
-	//均分问题
+	//背包
+		//01 均分问题 416 dp
+		//complete Coin Change
 }
