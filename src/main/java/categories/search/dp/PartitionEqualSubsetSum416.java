@@ -1,4 +1,4 @@
-package categories.search.partition;
+package categories.search.dp;
 
 import Utils.Printer;
 
