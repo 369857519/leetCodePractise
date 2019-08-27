@@ -14,11 +14,12 @@ public class Giant {
 	//473
 	//862 Shortest Subarray with Sum at Least K->Sliding Window/monotonic queue
 	//307 segment-tree->需要听一下讲解
-	//LRU->解决
-	//950,37
-	//trie
 	//加 减 乘 除 pow的实现 29
 	//深拷贝
+	//LRU->解决
+	//37
+	//trie
+	//950依然不懂
 	//八皇后--思路解决
 		//位运算优化
 	//背包--解决
