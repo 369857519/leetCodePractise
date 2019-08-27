@@ -15,14 +15,15 @@ public class Giant {
 	//862 Shortest Subarray with Sum at Least K->Sliding Window/monotonic queue
 	//307 segment-tree->需要听一下讲解
 	//LRU->解决
-	//877,950,37
-	//29
+	//950,37
 	//trie
-	//加 减 乘 除 pow的实现
-	//八皇后
-	//图书馆排序
-	//找零钱问题
-	//背包
+	//加 减 乘 除 pow的实现 29
+	//深拷贝
+	//八皇后--思路解决
+		//位运算优化
+	//背包--解决
+		//dp回溯未实现
 		//01 均分问题 416 dp
 		//complete Coin Change
+		//01 lint 125
 }
