@@ -1,6 +1,6 @@
 package categories.search.dp;
 
-import Utils.Printer;
+import Utils.ArrayUtil;
 
 public class PartitionEqualSubsetSum416 {
 
@@ -44,7 +44,7 @@ public class PartitionEqualSubsetSum416 {
 					table[i][j] = 1;
 				}
 			}
-			Printer.printArr(table);
+			ArrayUtil.printArr(table);
 		}
 		return false;
 	}
