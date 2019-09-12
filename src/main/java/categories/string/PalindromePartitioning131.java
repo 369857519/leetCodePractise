@@ -11,7 +11,6 @@ public class PalindromePartitioning131 {
 	}
 
 	public List<List<String>> partition(String s) {
-		int[][] matrix = new int[s.length()][s.length()];
 		int lastCenter = 0;
 		int lastRight = 0;
 		String countingS = "@" + String.join("#", s.split(""));
@@ -42,6 +41,9 @@ public class PalindromePartitioning131 {
 				lastCenter = i;
 			}
 		}
+
+		int[][] matrix = new int[countingS.length()][countingS.length()];
+		//adjacency matrix
 		System.out.println(Arrays.toString(record));
 
 		return null;
