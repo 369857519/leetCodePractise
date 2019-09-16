@@ -21,6 +21,7 @@ public class Giant {
 	//10
 	//trie
 	//307 segment-tree->需要听一下讲解
+	//131 palindromePartitioning131
 
 /***
  * 已解决的

@@ -1,6 +1,6 @@
 package categories.string;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PalindromePartitioning131 {
@@ -41,11 +41,25 @@ public class PalindromePartitioning131 {
 				lastCenter = i;
 			}
 		}
+		List<List<String>> res = new ArrayList<>();
+		split(res, new ArrayList(), record, 0, s);
+		return res;
+	}
 
-		int[][] matrix = new int[countingS.length()][countingS.length()];
-		//adjacency matrix
-		System.out.println(Arrays.toString(record));
+	public void split(List<List<String>> res, List<String> list, int[] record,
+		int start, String s) {
+		if (start == s.length()) {
+			res.add(list);
+		}
+		for (int i = start + 1; i < s.length(); i++) {
+			if (checkIfPalindrome(record, start, i)) {
+				list.add(s.substring(start, i));
+				split(res, list, record, i + 1, s);
+			}
+		}
+	}
 
-		return null;
+	public boolean checkIfPalindrome(int[] record, int start, int end) {
+		return true;
 	}
 }
