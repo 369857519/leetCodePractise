@@ -11,6 +11,9 @@ public class ListNode {
 	}
 
 	public static ListNode CreateListByArr(int[] arr) {
+		if (arr.length == 0) {
+			return null;
+		}
 		ListNode head = new ListNode(arr[0]);
 		ListNode current = head;
 		for (int i = 1; i < arr.length; i++) {
