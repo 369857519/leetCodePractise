@@ -2,6 +2,7 @@ package Utils;
 
 public class Giant {
 	//不会做的
+	//950依然不懂
 	//162
 	//378
 	//174 dp
@@ -13,15 +14,23 @@ public class Giant {
 	//684
 	//473
 	//862 Shortest Subarray with Sum at Least K->Sliding Window/monotonic queue
-	//307 segment-tree->需要听一下讲解
+	//加 减 乘 除 pow的实现 29
+	//深拷贝
 	//LRU->解决
-	//877,950,37
-	//29
+	//37
+	//10
 	//trie
-	//加 减 乘 除 pow的实现
-	//八皇后
-	//背包
-	//图书馆排序
-	//均分问题
-	//105
+	//307 segment-tree->需要听一下讲解
+	//131 palindromePartitioning131
+
+/***
+ * 已解决的
+  */
+	//八皇后--思路解决
+		//位运算优化
+	//背包--解决
+		//dp回溯未实现
+		//01 均分问题 416 dp
+		//complete Coin Change
+		//01 lint 125
 }
