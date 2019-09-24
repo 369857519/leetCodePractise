@@ -7,8 +7,13 @@ public class PalindromePartitioning131 {
 
 	public static void main(String[] args) {
 		PalindromePartitioning131 palindromePartitioning131 = new PalindromePartitioning131();
-		palindromePartitioning131.partition("aabaaacc");
+		List<List<String>> strArr = palindromePartitioning131.partition("aab");
+		strArr=palindromePartitioning131.partition("");
+		strArr=palindromePartitioning131.partition("ccccc");
 	}
+
+	public int[] maxPalindromeRecord;
+	public String counting;
 
 	public List<List<String>> partition(String s) {
 		int lastCenter = 0;
@@ -41,25 +46,32 @@ public class PalindromePartitioning131 {
 				lastCenter = i;
 			}
 		}
+		counting = countingS;
+		maxPalindromeRecord = record;
 		List<List<String>> res = new ArrayList<>();
-		split(res, new ArrayList(), record, 0, s);
+		split(res, new ArrayList(), 0, s);
 		return res;
 	}
 
-	public void split(List<List<String>> res, List<String> list, int[] record,
+	public void split(List<List<String>> res, List<String> list,
 		int start, String s) {
 		if (start == s.length()) {
-			res.add(list);
+			res.add(new ArrayList<>(list));
+			return;
 		}
-		for (int i = start + 1; i < s.length(); i++) {
-			if (checkIfPalindrome(record, start, i)) {
+		for (int i = start + 1; i <= s.length(); i++) {
+			if (checkIfPalindrome(start, i)) {
 				list.add(s.substring(start, i));
-				split(res, list, record, i + 1, s);
+				split(res, list, i, s);
+				list.remove(list.size() - 1);
 			}
 		}
 	}
 
-	public boolean checkIfPalindrome(int[] record, int start, int end) {
-		return true;
+	public boolean checkIfPalindrome(int start, int end) {
+		int recStart = start * 2 + 1;
+		int recEnd = end * 2;
+		int mid = recStart + recEnd >> 1;
+		return maxPalindromeRecord[mid] >= end - start;
 	}
 }
