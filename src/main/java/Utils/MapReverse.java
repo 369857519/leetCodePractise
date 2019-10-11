@@ -1,10 +1,15 @@
 package Utils;
 
+import java.util.ArrayList;
+
 public class MapReverse {
 
 	public static void main(String[] args) {
-		String hex = getMapId(962791530);
+		String hex = getMapId(837749281);
 		Long res = getId("000017f");
+		new ArrayList<Integer>(){{{
+			add(1);
+		}}}.subList(0,1);
 	}
 
 	public static String getMapId(long userId) {
