@@ -15,8 +15,14 @@ public class WiggleSort324 {
 	public void wiggleSort(int[] nums) {
 		Arrays.sort(nums);
 		int[] res = new int[nums.length];
-		for (int i = 0; i < nums.length/2; i++) {
-
+		for (int i = 1; i < nums.length; i++) {
+			if (i % 2 == 0) {
+				swap(nums, i, i + 1);
+			}
+		}
+		for (int i = 1; i < nums.length; i++) {
+			if (i % 2 == 0) {
+			}
 		}
 	}
 
