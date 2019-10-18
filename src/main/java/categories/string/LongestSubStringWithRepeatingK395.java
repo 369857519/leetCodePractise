@@ -18,13 +18,11 @@ public class LongestSubStringWithRepeatingK395 {
 			int[] tempRecord = new int[26];
 			for (int j = i; j < s.length(); j++) {
 				tempRecord[s.charAt(j) - 'a']++;
-				if (j - i + 1 >= k && isLegal(tempRecord, k)) {
+				if (j - i + 1 > k && isLegal(tempRecord, k)) {
 					res = Math.max(res, j - i + 1);
 				}
 			}
-			for (int j = 0; j < 26; j++) {
-				tempRecord[j] = 0;
-			}
+			tempRecord[s.charAt(i) - 'a']--;
 		}
 		return res;
 	}
