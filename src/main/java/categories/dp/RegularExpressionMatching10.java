@@ -11,48 +11,28 @@ public class RegularExpressionMatching10 {
 		boolean res = regularExpressionMatching10.isMatch("aab", "c*a*b");
 	}
 
+	enum Result {
+		TRUE, FALSE
+	}
+
+	Result[][] memo;
+
 	public boolean isMatch(String s, String p) {
-		int[][] memoize = new int[s.length() + 1][p.length() + 1];
-		for (int i = 0; i < s.length(); i++) {
-			char currentChar = s.charAt(i);
-			int len = 0;
-			for (int j = 0; j < p.length(); j++) {
-				if (p.charAt(j) == '.') {
-					len++;
-					if (memoize[i][j] == 1 || len == 1) {
-						memoize[i + 1][j + 1] = 1;
-					}
-				} else if (p.charAt(j) == '*') {
-					if (p.charAt(j - 1) == '.') {
-						if (memoize[i][j] == 1) {
-							return true;
-						}
-					} else if (currentChar == p.charAt(j - 1)) {
-						if (memoize[i][j] == 1) {
-							int k = i;
-							while (k < s.length() && s.charAt(k) == p.charAt(j - 1)) {
-								memoize[k + 1][j] = 1;
-								k++;
-								if (k == s.length() - 1) {
-									return true;
-								}
-							}
-						}
-					}
-				} else {
-					if (memoize[i][j] == 1 && p.charAt(j) == currentChar && j <= i) {
-						memoize[i + 1][j + 1] = 1;
-					}
-				}
-			}
-//			ArrayUtil.printArr(memoize);
+		return true;
+	}
+
+	public boolean isMatchRecursive(String text, String pattern) {
+		if (pattern.isEmpty()) {
+			return text.isEmpty();
 		}
-		for (int i = 0; i < memoize[s.length()].length; i++) {
-			if (memoize[s.length()][i] == 1) {
-				return true;
-			}
+		boolean first_match = (!text.isEmpty() &&
+			(pattern.charAt(0) == text.charAt(0) || pattern.charAt(0) == '.'));
+		if (pattern.length() >= 2 && pattern.charAt(1) == '*') {
+			return (isMatchRecursive(text, pattern.substring(2)) ||
+				(first_match && isMatchRecursive(text.substring(1), pattern)));
+		} else {
+			return first_match && isMatchRecursive(text.substring(1), pattern.substring(1));
 		}
-		return false;
 	}
 
 }
