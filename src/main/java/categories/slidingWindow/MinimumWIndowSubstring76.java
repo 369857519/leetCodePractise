@@ -1,4 +1,4 @@
-package categories.string;
+package categories.slidingWindow;
 
 public class MinimumWIndowSubstring76 {
 
