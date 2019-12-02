@@ -14,15 +14,21 @@ public class LargestRectangle84 {
 	public int largestRectangleArea(int[] heights) {
 		Stack<Integer> stack = new Stack<>();
 		int maxArea = 0, n = heights.length;
+		//正方向算一遍
 		for (int i = 0; i < n; i++) {
+			//如果
 			while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+				//取到前一个height
 				int height = heights[stack.pop()];
+
 				int length = stack.isEmpty() ? i : i - stack.peek() - 1;
 				int area = height * length;
 				maxArea = Math.max(maxArea, area);
 			}
+
 			stack.push(i);
 		}
+		//反方向再算一遍
 		while (!stack.isEmpty()) {
 			int height = heights[stack.pop()];
 			int length = stack.isEmpty() ? n : n - stack.peek() - 1;
