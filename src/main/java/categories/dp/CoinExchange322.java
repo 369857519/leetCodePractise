@@ -1,4 +1,4 @@
-package categories.search.dp;
+package categories.dp;
 
 public class CoinExchange322 {
 

@@ -1,4 +1,4 @@
-package categories.search.BFS;
+package categories.dp;
 
 import Utils.ArrayUtil;
 
