@@ -28,6 +28,14 @@ public class PalindromeLinkedList234 {
 		return true;
 	}
 
+	public ListNode findMidNode(ListNode node) {
+		return node;
+	}
+
+	public ListNode reverse(ListNode node) {
+		return node;
+	}
+
 	public boolean isPalindromeSelf(ListNode head) {
 		int length = 0;
 		ListNode headP = head;
