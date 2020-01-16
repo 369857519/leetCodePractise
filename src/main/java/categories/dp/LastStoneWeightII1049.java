@@ -22,6 +22,27 @@ public class LastStoneWeightII1049 {
             sum += stone;
         }
         int target = sum / 2;
+        boolean dp[] = new boolean[target + 1];
+        dp[0] = true;
+        int res = sum;
+        for (int stone : stones) {
+            for (int i = target; i >= stone; i--) {
+                dp[i] = dp[i] || dp[i - stone];
+                if (dp[i]) {
+                    res = Math.min(res, Math.abs(2 * i - sum));
+                }
+            }
+        }
+        return res;
+
+    }
+
+    public int lastStoneWeightIITwoDimentionDP(int[] stones) {
+        int sum = 0;
+        for (int stone : stones) {
+            sum += stone;
+        }
+        int target = sum / 2;
         int[][] dp = new int[stones.length + 1][target + 1];
         for (int i = 1; i <= stones.length; i++) {
             for (int j = 1; j <= target; j++) {
