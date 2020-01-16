@@ -1,6 +1,6 @@
 package categories.search.BFS;
 
-import Utils.ArrayUtil;
+import Utils.ArrayPrintUtil;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -52,7 +52,7 @@ public class SurroundedRegions130 {
 				}
 			}
 		}
-		ArrayUtil.printArr(board);
+		ArrayPrintUtil.printArr(board);
 	}
 
 	//traverse

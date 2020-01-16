@@ -1,6 +1,6 @@
 package categories.dp;
 
-import Utils.ArrayUtil;
+import Utils.ArrayPrintUtil;
 
 public class KnapSack01dp {
 
@@ -30,7 +30,7 @@ public class KnapSack01dp {
 					max[j][k] = a > b ? a : b;//选择第j个和不选第j个物品，那个大，返回哪个；
 				}
 			}
-			ArrayUtil.printArr(max);
+			ArrayPrintUtil.printArr(max);
 			System.out.println();
 		}
 

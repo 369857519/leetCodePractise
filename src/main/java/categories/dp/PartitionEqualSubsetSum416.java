@@ -1,6 +1,6 @@
 package categories.dp;
 
-import Utils.ArrayUtil;
+import Utils.ArrayPrintUtil;
 
 public class PartitionEqualSubsetSum416 {
 
@@ -38,7 +38,7 @@ public class PartitionEqualSubsetSum416 {
 				}
 				dpState[i][j] = (lastState == 1 || dpState[i - 1][j] == 1) ? 1 : 0;
 			}
-			ArrayUtil.printArr(dpState);
+			ArrayPrintUtil.printArr(dpState);
 		}
 		return dpState[nums.length - 1][target] == 1;
 	}

@@ -1,6 +1,6 @@
 package categories.dp;
 
-import Utils.ArrayUtil;
+import Utils.ArrayPrintUtil;
 
 public class MaximalSquare221 {
 
@@ -76,7 +76,7 @@ public class MaximalSquare221 {
 							Math.min(memoize[i - 1][j], memoize[i][j - 1])) + 1;
 					}
 					res = Math.max(res, memoize[i][j]);
-					ArrayUtil.printArr(memoize);
+					ArrayPrintUtil.printArr(memoize);
 				}
 			}
 		}

@@ -2,7 +2,7 @@ package Utils;
 
 import java.util.Arrays;
 
-public class ArrayUtil {
+public class ArrayPrintUtil {
 
 	public static void printArr(int[][] array) {
 		for (int i = 0; i < array.length; i++) {
