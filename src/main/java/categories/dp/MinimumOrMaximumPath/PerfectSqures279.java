@@ -1,4 +1,4 @@
-package categories.math;
+package categories.dp.MinimumOrMaximumPath;
 
 public class PerfectSqures279 {
 

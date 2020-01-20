@@ -1,4 +1,4 @@
-package categories.dp;
+package categories.dp.MinimumOrMaximumPath;
 
 import Utils.ArrayPrintUtil;
 import java.util.HashSet;

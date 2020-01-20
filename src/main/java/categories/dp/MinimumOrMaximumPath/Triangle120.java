@@ -1,4 +1,4 @@
-package categories.dp;
+package categories.dp.MinimumOrMaximumPath;
 
 import java.util.ArrayList;
 import java.util.Arrays;
