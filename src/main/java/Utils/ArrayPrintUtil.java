@@ -28,4 +28,12 @@ public class ArrayPrintUtil {
 		System.out.println();
 	}
 
+	public static void printArr(char[] array){
+		System.out.println(Arrays.toString(array));
+	}
+
+	public static void printArr(int[] array){
+		System.out.println(Arrays.toString(array));
+	}
+
 }
