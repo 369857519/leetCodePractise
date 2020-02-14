@@ -2,44 +2,76 @@ package Utils;
 
 public class Trie {
 
+	public static void main(String[] args) {
+		boolean test = false;
+		Trie trie = new Trie();
+		trie.insert("apple");
+		test = trie.search("apple");
+		test = trie.startsWith("app");
+		test = trie.search("app");
+		trie.insert("app");
+		test = trie.search("app");
+	}
+
 	private TrieNode root;
 
+	/**
+	 * Initialize your data structure here.
+	 */
 	public Trie() {
 		root = new TrieNode();
 	}
 
+	/**
+	 * Inserts a word into the trie.
+	 */
 	public void insert(String word) {
-		TrieNode node = root;
+		TrieNode pointer = root;
 		for (int i = 0; i < word.length(); i++) {
-			char currentChar = word.charAt(i);
-			if (!node.containsKey(currentChar)) {
-				node.put(currentChar, new TrieNode());
+			char c = word.charAt(i);
+			int index = getIndex(word.charAt(i));
+			if (pointer.children[index] == null) {
+				pointer.children[getIndex(c)] = new TrieNode();
 			}
-			node = node.get(currentChar);
+			pointer = pointer.children[index];
 		}
-		node.setEnd();
+		pointer.isEnd = true;
 	}
 
-	private TrieNode searchPrefix(String word) {
-		TrieNode node = root;
-		for (int i = 0; i < word.length(); i++) {
-			char curLetter = word.charAt(i);
-			if (node.containsKey(curLetter)) {
-				node = node.get(curLetter);
-			} else {
-				return null;
-			}
-		}
-		return node;
-	}
-
+	/**
+	 * Returns if the word is in the trie.
+	 */
 	public boolean search(String word) {
-		TrieNode node = searchPrefix(word);
-		return node != null & node.isEnd();
+		TrieNode pointer = root;
+		for (int i = 0; i < word.length(); i++) {
+			int index = getIndex(word.charAt(i));
+			if (pointer.children[index] != null) {
+				pointer = pointer.children[index];
+			} else {
+				return false;
+			}
+		}
+		return pointer.isEnd;
 	}
 
+	/**
+	 * Returns if there is any word in the trie that starts with the given prefix.
+	 */
 	public boolean startsWith(String prefix) {
-		TrieNode node = searchPrefix(prefix);
-		return node != null;
+		TrieNode pointer = root;
+		boolean res = true;
+		for (int i = 0; i < prefix.length(); i++) {
+			int index = getIndex(prefix.charAt(i));
+			if (pointer.children[index] != null) {
+				pointer = pointer.children[index];
+			} else {
+				res = false;
+			}
+		}
+		return res;
+	}
+
+	private int getIndex(char c) {
+		return c - 'a';
 	}
 }

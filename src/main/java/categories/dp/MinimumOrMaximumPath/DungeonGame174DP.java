@@ -1,6 +1,4 @@
-package categories.dp;
-
-import java.util.Arrays;
+package categories.dp.MinimumOrMaximumPath;
 
 public class DungeonGame174DP {
 

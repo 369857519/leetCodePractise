@@ -1,4 +1,4 @@
-package categories.dp;
+package categories.dp.DistinctWays;
 
 public class UniquePaths62 {
 

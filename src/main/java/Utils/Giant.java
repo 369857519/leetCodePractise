@@ -21,16 +21,25 @@ public class Giant {
 	//10
 	//trie
 	//307 segment-tree->需要听一下讲解
-	//131 palindromePartitioning131
-
+	// 227
+	// 240
+/**`
+ * 不知道为啥的
+ */
+	//环形翻转数组
+	//240 找数组中相同的元素
+	//395
 /***
  * 已解决的
   */
-	//八皇后--思路解决
+	//八皇后
 		//位运算优化
-	//背包--解决
+	//背包
 		//dp回溯未实现
 		//01 均分问题 416 dp
 		//complete Coin Change
 		//01 lint 125
+	//131 palindromePartitioning131
+		//直接深度优先加判断
+		//深度优先加马拉车记录
 }
