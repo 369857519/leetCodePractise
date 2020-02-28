@@ -23,7 +23,6 @@ public class MinScoreTrianulation1039 {
         for (int length = 4; length <= A.length; length++) {
             for (int i = 0; i < A.length; i++) {
                 dp[i][i + length] = cal(A, i, length, dp);
-                dp[i + length][i] =
             }
         }
 
