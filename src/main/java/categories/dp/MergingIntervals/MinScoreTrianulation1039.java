@@ -2,7 +2,10 @@ package categories.dp.MergingIntervals;
 
 public class MinScoreTrianulation1039 {
 
+    private int length;
+
     public int minScoreTriangulation(int[] A) {
+        this.length=A.length;
         //dp[i][j]
         //for k in i到j
         //这里注意需要计算环形的情况
@@ -12,23 +15,35 @@ public class MinScoreTrianulation1039 {
 
         //初始化三个节点的情况
         for (int i = 0; i < A.length; i++) {
-            cal(A, i, i + 3, dp);
+            dp[i][i]=A[i];
+            dp[i][i+2]=A[i]*A[index(i+1)]*A[index(i+2)];
         }
 
         int min = Integer.MAX_VALUE;
         for (int length = 4; length <= A.length; length++) {
             for (int i = 0; i < A.length; i++) {
-                int res = cal(A, i, i + length, dp);
-                if (length == A.length) {
-                    min = Math.min(min, res);
-                }
+                dp[i][i+length] = cal(A, i, length, dp);
+
             }
         }
 
         return min;
     }
 
-    private int cal(int[] A, int i, int j, int[][] dp) {
-        return 0;
+    public int index(int i){
+        if(i>=length){
+            return i-length;
+        }else{
+            return i;
+        }
+    }
+
+    private int cal(int[] A, int i,int length, int[][] dp) {
+        int min=Integer.MAX_VALUE;
+        int end=i+length;
+        //left
+        int left=dp[i][index(i+length-1)]+dp[index(end-2)][index(end)];
+        int right=dp[i][index(i+left-1)]+
+        return min;
     }
 }
