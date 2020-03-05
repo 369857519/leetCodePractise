@@ -1,31 +1,34 @@
 package categories.linkedList;
 
 import Utils.ListNode;
-import Utils.TreeNode;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RMNthEnd19 {
 
-	public static void main(String[] args) {
-		ListNode listNode = ListNode.CreateListByArr(new int[]{1, 2});
-		new RMNthEnd19().removeNthFromEnd(listNode, 2);
-	}
+    public static void main(String[] args) {
+        RMNthEnd19 rmNthEnd19 = new RMNthEnd19();
+        rmNthEnd19.removeNthFromEnd(ListNode.CreateListByArr(new int[]{1, 2, 3, 4, 5}), 2);
+        rmNthEnd19.removeNthFromEnd(ListNode.CreateListByArr(new int[]{1}), 1);
 
-	public ListNode removeNthFromEnd(ListNode head, int n) {
-		ListNode ptr = head;
-		List<ListNode> list = new ArrayList<>();
-		while (ptr != null) {
-			list.add(ptr);
-			ptr = ptr.next;
-		}
-		int len = list.size();
-		//删的是头节点
-		if (n == list.size()) {
-			return head.next;
-		}
+    }
 
-		list.get(len - (n + 1)).next = list.get(len - (n)).next;
-		return head;
-	}
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode ptr = head;
+        int length = 0;
+        while (ptr != null) {
+            length++;
+            ptr = ptr.next;
+        }
+        int pos = length - n;
+        if (pos == 0) {
+            return head.next;
+        }
+        ptr = head;
+        int counter = 1;
+        while (counter < pos) {
+            ptr = ptr.next;
+            counter++;
+        }
+        ptr.next = ptr.next.next;
+        return head;
+    }
 }
