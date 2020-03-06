@@ -1,54 +1,48 @@
 package categories.linkedList;
 
 import Utils.ListNode;
-import java.util.HashSet;
-import java.util.Set;
 
 public class IntersectionOfTwoLinkedList160 {
 
-	public ListNode getIntersectionNodeOn(ListNode headA, ListNode headB) {
-		Set<ListNode> set = new HashSet<>();
-		while (headA != null) {
-			set.add(headA);
-			headA = headA.next;
-		}
-		while (headB != null) {
-			if (set.contains(headB)) {
-				return headB;
-			}
-			headB = headB.next;
-		}
-		return null;
-	}
+    public static void main(String[] args) {
+        IntersectionOfTwoLinkedList160 intersectionOfTwoLinkedList160 = new IntersectionOfTwoLinkedList160();
+        ListNode common = ListNode.CreateListByArr(new int[]{1, 2, 3, 4});
+        ListNode headA = ListNode.CreateListByArr(new int[]{5, 7});
+        ListNode headB = ListNode.CreateListByArr(new int[]{7, 9, 0});
+        headA.next.next = common;
+        headB.next.next.next = common;
+        intersectionOfTwoLinkedList160.getIntersectionNode(headA, headB);
+    }
 
-	public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-		int lenA = 0, lenB = 0;
-		ListNode headAP = headA, headBP = headB;
-		while (headA != null) {
-			lenA++;
-			headA = headA.next;
-		}
-		while (headB != null) {
-			lenB++;
-			headB = headB.next;
-		}
-		int distance = lenA - lenB;
-		if (distance > 0) {
-			while (distance > 0) {
-				distance--;
-				headAP = headAP.next;
-			}
-		} else {
-			distance = Math.abs(distance);
-			while (distance > 0) {
-				distance--;
-				headBP = headBP.next;
-			}
-		}
-		while (headAP != headBP) {
-			headAP = headAP.next;
-			headBP = headBP.next;
-		}
-		return headAP;
-	}
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        int lengthA = 0, lengthB = 0;
+        ListNode ptr = headA;
+        while (ptr != null) {
+            lengthA++;
+            ptr = ptr.next;
+        }
+        ptr = headB;
+        while (ptr != null) {
+            lengthB++;
+            ptr = ptr.next;
+        }
+        if (lengthA < lengthB) {
+            ptr = headA;
+            headA = headB;
+            headB = ptr;
+        }
+        int sub = Math.abs(lengthA - lengthB);
+        while (sub > 0) {
+            sub--;
+            headA = headA.next;
+        }
+        while (headA != null && headB != null) {
+            if (headA == headB) {
+                return headA;
+            }
+            headA = headA.next;
+            headB = headB.next;
+        }
+        return null;
+    }
 }
