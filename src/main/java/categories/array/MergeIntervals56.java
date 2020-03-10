@@ -32,18 +32,9 @@ public class MergeIntervals56 {
     }
 
     public boolean ifOverLap(int[] a, int[] b) {
-        boolean res = false;
-        if (a[0] <= b[0] && a[1] >= b[1]) {
-            res = true;
-        }
-        if (b[0] <= a[0] && b[1] >= a[1]) {
-            res = true;
-        }
-        if (b[0] >= a[0] && b[0] <= a[1]) {
-            res = true;
-        }
-        if (b[1] >= a[0] && b[1] <= a[1]) {
-            res = true;
+        boolean res = true;
+        if (a[1] < b[0] || b[1] < a[0]) {
+            res = false;
         }
         if (res) {
             a[0] = Math.min(a[0], b[0]);
