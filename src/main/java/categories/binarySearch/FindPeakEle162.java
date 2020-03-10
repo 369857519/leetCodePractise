@@ -1,19 +1,22 @@
 package categories.binarySearch;
 
 public class FindPeakEle162 {
-	public static void main(String[] args) {
 
-	}
-	public int findPeakElement(int[] nums) {
-		int l=0;int r=nums.length-1;
-		while(l<r){
-			int mid=l+r>>>1;
-			if(nums[mid]>nums[mid+1]){
-				r=mid;
-			}else{
-				l=mid+1;
-			}
-		}
-		return l;
-	}
+    public static void main(String[] args) {
+
+    }
+
+    public int findPeakElement(int[] nums) {
+        int start = 0, end = nums.length - 1;
+        while (start < end) {
+            int mid = start + end >>> 1;
+            if (nums[mid] > nums[mid + 1]) {
+                end = mid;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return start;
+
+    }
 }
