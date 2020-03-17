@@ -2,6 +2,7 @@ package categories.tree;
 
 import Utils.ListNode;
 import Utils.TreeNode;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -10,6 +11,7 @@ import java.util.Queue;
  */
 public class SymTree101 {
     public boolean isSymmetric(TreeNode root) {
+        "fdsfd".split(",");
         if(null==root){
             return true;
         }
