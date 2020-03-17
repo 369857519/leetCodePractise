@@ -6,28 +6,38 @@ import java.util.LinkedList;
 
 public class Codec297 {
 
+    public static void main(String[] args) {
+        Codec297 codec297 = new Codec297();
+        TreeNode treeNode = codec297.deserialize("[1,3,null,null,4]");
+        String str = codec297.serialize(treeNode);
+        treeNode = codec297.deserialize("[1]");
+        str=codec297.serialize(treeNode);
+
+    }
+
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         int size = getLevel(root);
         String[] recordList = new String[(int) (Math.pow(2, size) - 1)];
         LinkedList<TreeNode> list = new LinkedList();
         list.add(root);
-        int count = 0;
-        while (count <= size) {
-            for (int i = 0; i <= count * 2 + 1; i++) {
+        int count = 1;
+        while (count <= recordList.length) {
+            for (int i = count; i < count * 2; i++) {
+                int realIndex = i - 1;
                 TreeNode cur = list.pollFirst();
                 if (cur == null) {
-                    recordList[i] = "null";
+                    recordList[realIndex] = "null";
                     list.addLast(null);
                     list.addLast(null);
                 } else {
-                    recordList[i] = String.valueOf(cur.val);
+                    recordList[realIndex] = String.valueOf(cur.val);
                     list.addLast(cur.left);
                     list.addLast(cur.right);
                 }
 
             }
-            count++;
+            count *= 2;
         }
         return "[" + String.join(",", recordList) + "]";
     }
@@ -44,11 +54,14 @@ public class Codec297 {
     public TreeNode deserialize(String data) {
         data = data.replace("[", "");
         data = data.replace("]", "");
+        if(data.length()==0){
+            return null;
+        }
         String[] recordArr = data.split(",");
         ArrayList<TreeNode> recordList = new ArrayList();
         for (int i = 0; i < recordArr.length; i++) {
             TreeNode curTr = null;
-            if (recordArr[i] != "null") {
+            if (!"null".equals(recordArr[i])) {
                 curTr = new TreeNode(Integer.parseInt(recordArr[i]));
             }
             recordList.add(curTr);
