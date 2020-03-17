@@ -9,6 +9,7 @@ public class Codec297 {
     public static void main(String[] args) {
         Codec297 codec297 = new Codec297();
         TreeNode treeNode = codec297.deserialize("[1,3,null,null,4]");
+        //        testNode = codec297.deserialize("[5,4,8,11,null,13,4,7,2,null,null,5,1]");
         String str = codec297.serialize(treeNode);
         treeNode = codec297.deserialize("[1]");
         str=codec297.serialize(treeNode);
