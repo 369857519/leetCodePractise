@@ -29,16 +29,13 @@ public class FlatternTree114 {
                 curNode.right = head.right;
                 head.right = curNode;
                 curNode.left = null;
-            }
-            if (curNode.left == null && curNode.right == null) {
+            } else {
                 tail.right = curNode;
                 tail = curNode;
                 curNode.left = null;
                 curNode.right = null;
             }
-            if (curNode.left == null && curNode.right != null) {
-
-            }
+            System.out.println(curNode.val);
         }
         System.out.println("finish");
     }
