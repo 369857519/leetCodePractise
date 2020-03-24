@@ -1,70 +1,64 @@
 package categories.toplogicalSort;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-
 public class CourseSchedule207 {
 
     public static void main(String[] args) {
         CourseSchedule207 courseSchedule207 = new CourseSchedule207();
-        courseSchedule207.canFinish(2, new int[][]{
+        boolean res = courseSchedule207.canFinish(2, new int[][]{
             {1, 0}, {0, 1}
         });
-        courseSchedule207.canFinish(3, new int[][]{
+        res = courseSchedule207.canFinish(3, new int[][]{
             {2, 0}, {2, 1}
         });
-        courseSchedule207.canFinish(3, new int[][]{
+        res = courseSchedule207.canFinish(3, new int[][]{
             {0, 1},
             {0, 2},
             {1, 2}
         });
+
+        res = courseSchedule207.canFinish(2, new int[][]{});
     }
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         //inDegree record
         int[] inDegreeRecord = new int[numCourses];
+        int[] nodeRecord = new int[numCourses];
 
-        Map<Integer, List<Integer>> prerequisitesMap = new HashMap();
         for (int i = 0; i < prerequisites.length; i++) {
             inDegreeRecord[prerequisites[i][0]]++;
-            prerequisitesMap.putIfAbsent(prerequisites[i][1], new ArrayList<>());
-            prerequisitesMap.get(prerequisites[i][1]).add(prerequisites[i][0]);
         }
-
-        List<Integer> entrances = new ArrayList<>();
-        for (int i = 0; i < numCourses; i++) {
-            if (inDegreeRecord[i] == 0) {
-                entrances.add(i);
+        int len = prerequisites.length;
+        while (true) {
+            boolean ifCanRemove = false;
+            //删除入度为0的节点
+            for (int i = 0; i < nodeRecord.length; i++) {
+                if (nodeRecord[i] != -1 && inDegreeRecord[i] == 0) {
+                    ifCanRemove = true;
+                    nodeRecord[i] = -1;
+                    if (len > 0) {
+                        for (int j = 0; j < len; j++) {
+                            if (prerequisites[j][1] == i) {
+                                inDegreeRecord[prerequisites[j][0]]--;
+                                prerequisites[j] = prerequisites[len - 1];
+                                len--;
+                                j = j - 1;
+                            }
+                        }
+                    }
+                }
+            }
+            if (!ifCanRemove) {
+                //没有可以删除的节点，return
+                break;
             }
         }
-        for (Integer entrance : entrances) {
-            visit(entrance, prerequisitesMap, inDegreeRecord);
-        }
-        for (int i = 0; i < numCourses; i++) {
-            if (inDegreeRecord[i] != 0) {
+
+        //判断是否还有节点
+        for (int i = 0; i < nodeRecord.length; i++) {
+            if (nodeRecord[i] == 0) {
                 return false;
             }
         }
         return true;
-    }
-
-    //每一次删除无前驱节点
-    public void visit(int start, Map<Integer, List<Integer>> relationMap, int[] inDegreeRecord) {
-        Queue<Integer> queue = new LinkedList();
-        queue.offer(start);
-        while (!queue.isEmpty()) {
-            int cur = queue.poll();
-            if (relationMap.get(cur) != null) {
-                for (int i : relationMap.get(cur)) {
-                    queue.offer(i);
-                    inDegreeRecord[i]--;
-                }
-                relationMap.remove(cur);
-            }
-        }
     }
 }
