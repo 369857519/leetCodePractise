@@ -20,10 +20,12 @@ public class QuickSort {
         int left = pivot + 1;
         int right = end;
         while (left < right) {
-            if (nums[left] >= nums[pivot]) {
-                swap(nums, left, right--);
-            } else {
-                left++;
+            if (nums[left] > nums[pivot]) {
+
+            }
+            if (nums[right] < nums[pivot]) {
+                swap(nums, left, right);
+                right++;
             }
         }
         swap(nums, pivot, left);
