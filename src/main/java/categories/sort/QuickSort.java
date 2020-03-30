@@ -26,9 +26,9 @@ public class QuickSort {
                 left++;
             }
         }
-        swap(nums, pivot, start);
-        sort(nums, pivot - 1, start);
-        sort(nums, start, end + 1);
+        swap(nums, pivot, left - 1);
+        sort(nums, start, left);
+        sort(nums, left, end + 1);
     }
 
     public void swap(int[] nums, int l, int r) {
