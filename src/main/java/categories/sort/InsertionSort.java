@@ -38,14 +38,14 @@ public class InsertionSort {
     }
 
     public int binarySearch(int[] arr, int left, int right, int target) {
-        right = right - 1;
-        while (left < right) {
-            int mid = left + right >>> 1;
-            if (target > arr[mid]) {
-                left = mid + 1;
-            } else if (target < arr[mid]) {
-                right = mid - 1;
-            } else {
+        right=right-1;
+        while(left<right){
+            int mid=left+right>>1;
+            if(target>arr[mid]){
+                left=mid+1;
+            }else if(target<arr[mid]){
+                right=mid-1;
+            }else{
                 return mid;
             }
         }
