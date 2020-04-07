@@ -1,63 +1,84 @@
 package categories.string;
 
 
+
 public class LongestPalindromicSubString5 {
 
-	public static void main(String[] args) {
-		LongestPalindromicSubString5 longestPalindromicSubString5 = new LongestPalindromicSubString5();
-		String test = longestPalindromicSubString5.longestPalindrome("cbbd");
-		test = longestPalindromicSubString5.longestPalindrome("babad");
-		test=longestPalindromicSubString5.longestPalindrome("abb");
 
-	}
 
-	public String longestPalindrome(String s) {
-		if (s.length() == 1 || s.length() == 0) {
-			return s;
-		}
-		StringBuilder stringBuilder=new StringBuilder();
-		stringBuilder.append('#');
-		for(int i=0;i<s.length();i++){
-			stringBuilder.append(s.charAt(i));
-			stringBuilder.append('#');
-		}
-		s=stringBuilder.toString();
-		int[] lens = new int[s.length()];
-		int symetryi;
-		int p = 0, pCenter = 0;
-		int maxIndex = 0;
-		for (int i = 0; i < lens.length; i++) {
-			if (i < p) {
-				//找对称位置
-				symetryi = 2 * pCenter - i;
-				if ((lens[symetryi] + i) >= p) {
-					//从p开始扩展len[i]，并更新p
-					lens[i] = calPalindromicLen(s, i, lens[symetryi]);
-				} else {
-					lens[i] = lens[symetryi];
-				}
-			} else {
-				//重新计算长度并更新p
-				lens[i] = calPalindromicLen(s, i, 0);
-			}
-			if (lens[maxIndex] < lens[i]) {
-				maxIndex = i;
-			}
-		}
-		return s.substring(maxIndex - lens[maxIndex] + 1, maxIndex + lens[maxIndex])
-			.replaceAll("#", "");
-	}
+    public static void main(String[] args) {
+        LongestPalindromicSubString5 longestPalindromicSubString5 = new LongestPalindromicSubString5();
+        String test = longestPalindromicSubString5.longestPalindrome("cbbd");
+        test = longestPalindromicSubString5.longestPalindrome("babad");
+        test = longestPalindromicSubString5.longestPalindrome("abb");
+        test = longestPalindromicSubString5.longestPalindrome("");
 
-	public int calPalindromicLen(String s, int center, int startlen) {
-		int i = 1;
-		while (true) {
-			int left = center - startlen - i;
-			int right = center + startlen + i;
-			if (left < 0 || right >= s.length() || s.charAt(left) != s.charAt(right)) {
-				break;
-			}
-			i++;
-		}
-		return startlen + i;
-	}
+    }
+
+    //manacher
+    public String longestPalindrome(String s) {
+        s = "@#" + String.join("#", s.split("")) + "#$";
+
+        int[] record = new int[s.length()];
+        int right = 0;
+        int rightCenter = 0;
+        for (int i = 1; i < s.length(); i++) {
+            if (i < right) {
+                //利用对称性性
+                int symmetryPoint = rightCenter - (i - rightCenter);
+                int starter = Math.min(right - i, record[symmetryPoint]);
+                record[i] = starter;
+            } else {
+                //朴素办法
+                record[i] = 0;
+            }
+            while (s.charAt(i + 1 + record[i]) == s.charAt(i - 1 - record[i])) {
+                record[i]++;
+            }
+            if (i + record[i] > right) {
+                rightCenter = i;
+                right = i + record[i];
+            }
+        }
+        int maxIndex = 0;
+        int max = 0;
+        for (int i = 1; i < record.length; i++) {
+            if (record[i] > max) {
+                max = record[i];
+                maxIndex = i;
+            }
+        }
+        return s.substring(maxIndex - record[maxIndex] + 1, maxIndex + record[maxIndex])
+            .replace("#", "");
+    }
+
+    //n^2的方式
+    public String longestPalindromeNsquare(String s) {
+        //奇数
+        String resString = "";
+        for (int i = 0; i < s.length(); i++) {
+            int j = 0;
+
+            int length = 0;
+            while (i + j < s.length() && i - j >= 0 && s.charAt(i + j) == s.charAt(i - j)) {
+                length += 2;
+                if (length > resString.length()) {
+                    resString = s.substring(i - j, i + j + 1);
+                }
+                j++;
+            }
+
+            j = 0;
+            length = 0;
+            while (i + j + 1 < s.length() && i - j >= 0 && s.charAt(i + j + 1) == s.charAt(i - j)) {
+                length += 2;
+                if (length > resString.length()) {
+                    resString = s.substring(i - j, i + j + 2);
+                }
+                j++;
+            }
+        }
+        return resString;
+    }
+
 }
