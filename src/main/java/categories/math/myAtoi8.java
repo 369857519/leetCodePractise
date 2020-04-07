@@ -17,6 +17,8 @@ public class myAtoi8 {
             sign = cs[i++] == '-' ? -1 : 1;
         }
         while (i < cs.length && cs[i] >= '0' && cs[i] <= '9') {
+            //最后一位如果大于7，则发生了溢出，进行处理
+            //2147483647
             if (res > threshold || (res == threshold && (cs[i] - '0') > 7)) {
                 return sign == -1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
             }
