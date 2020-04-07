@@ -4,6 +4,13 @@ import java.util.Arrays;
 
 public class ArrayPrintUtil {
 
+    public static void printArr(boolean[][] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(Arrays.toString(array[i]));
+        }
+        System.out.println();
+    }
+
     public static void printArr(double[][] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.println(Arrays.toString(array[i]));
