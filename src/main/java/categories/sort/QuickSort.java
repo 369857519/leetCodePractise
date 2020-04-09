@@ -4,38 +4,33 @@ public class QuickSort {
 
     public static void main(String[] args) {
         QuickSort quickSort = new QuickSort();
-        quickSort.quickSort(new int[]{3, 4, 5, 1, 7, 10, 22, 1231, 32, 1, 1, 2});
+        quickSort.quickSort(new int[]{10, 33, 2, 111, 4, 60, 3});
     }
 
     public void quickSort(int[] nums) {
-        sort(nums, 0, nums.length);
+
+        sort(nums, 0, nums.length - 1);
     }
 
-    public void sort(int[] nums, int start, int end) {
-        end = end - 1;
-        if (start == end) {
+    public void sort(int[] arr, int left, int right) {
+        if (left >= right) {
             return;
         }
-        int pivot = start;
-        int left = pivot + 1;
-        int right = end;
-        while (left < right) {
-            if (nums[left] > nums[pivot]) {
-
+        int i = left;
+        int j = right;
+        int pivot = arr[j];
+        while (i < j) {
+            while (i < j && arr[i] <= pivot) {
+                i++;
             }
-            if (nums[right] < nums[pivot]) {
-                swap(nums, left, right);
-                right++;
+            arr[j] = arr[i];
+            while (i < j && arr[j] >= pivot) {
+                j--;
             }
+            arr[i] = arr[j];
         }
-        swap(nums, pivot, left);
-        sort(nums, start, left);
-        sort(nums, left, end + 1);
-    }
-
-    public void swap(int[] nums, int l, int r) {
-        int temp = nums[l];
-        nums[l] = nums[r];
-        nums[r] = temp;
+        arr[j] = pivot;
+        sort(arr, left, j - 1);
+        sort(arr, j + 1, right);
     }
 }
