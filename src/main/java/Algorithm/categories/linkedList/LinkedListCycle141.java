@@ -5,7 +5,7 @@ import Algorithm.Utils.ListNode;
 public class LinkedListCycle141 {
 
     public static void main(String[] args) {
-        ListNode.CreateListByArr(new int[]{1});
+        ListNode.createListByArr(new int[]{1});
     }
 
     public boolean hasCycle(ListNode head) {

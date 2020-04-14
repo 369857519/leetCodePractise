@@ -5,9 +5,9 @@ import Algorithm.Utils.ListNode;
 public class MergeKSortedList23 {
 
     public static void main(String[] args) {
-        ListNode listNode1 = ListNode.CreateListByArr(new int[]{1, 3, 5});
-        ListNode listnode2 = ListNode.CreateListByArr(new int[]{2, 4, 6});
-        ListNode listNode3 = ListNode.CreateListByArr(new int[]{10});
+        ListNode listNode1 = ListNode.createListByArr(new int[]{1, 3, 5});
+        ListNode listnode2 = ListNode.createListByArr(new int[]{2, 4, 6});
+        ListNode listNode3 = ListNode.createListByArr(new int[]{10});
         ListNode[] listNodes = {listNode1, listnode2,listNode3};
         MergeKSortedList23 mergeKSortedList23 = new MergeKSortedList23();
         mergeKSortedList23.mergeKLists(listNodes);

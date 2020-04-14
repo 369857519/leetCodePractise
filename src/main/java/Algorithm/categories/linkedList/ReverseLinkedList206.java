@@ -6,8 +6,8 @@ public class ReverseLinkedList206 {
 
     public static void main(String[] args) {
         ReverseLinkedList206 reverseLinkedList206 = new ReverseLinkedList206();
-        reverseLinkedList206.reverseList(ListNode.CreateListByArr(new int[]{1, 2, 3, 4, 5}));
-        reverseLinkedList206.reverseList(ListNode.CreateListByArr(new int[]{1}));
+        reverseLinkedList206.reverseList(ListNode.createListByArr(new int[]{1, 2, 3, 4, 5}));
+        reverseLinkedList206.reverseList(ListNode.createListByArr(new int[]{1}));
     }
 
     public ListNode reverseList(ListNode head) {

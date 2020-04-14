@@ -6,8 +6,8 @@ public class RMNthEnd19 {
 
     public static void main(String[] args) {
         RMNthEnd19 rmNthEnd19 = new RMNthEnd19();
-        rmNthEnd19.removeNthFromEnd(ListNode.CreateListByArr(new int[]{1, 2, 3, 4, 5}), 2);
-        rmNthEnd19.removeNthFromEnd(ListNode.CreateListByArr(new int[]{1}), 1);
+        rmNthEnd19.removeNthFromEnd(ListNode.createListByArr(new int[]{1, 2, 3, 4, 5}), 2);
+        rmNthEnd19.removeNthFromEnd(ListNode.createListByArr(new int[]{1}), 1);
 
     }
 

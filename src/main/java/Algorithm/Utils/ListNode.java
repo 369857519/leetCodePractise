@@ -10,7 +10,7 @@ public class ListNode {
 		val = x;
 	}
 
-	public static ListNode CreateListByArr(int[] arr) {
+	public static ListNode createListByArr(int[] arr) {
 		if (arr.length == 0) {
 			return null;
 		}

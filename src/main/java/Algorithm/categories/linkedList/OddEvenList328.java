@@ -7,8 +7,8 @@ public class OddEvenList328 {
 	public static void main(String[] args) {
 		OddEvenList328 oddEvenList328 = new OddEvenList328();
 		ListNode res = oddEvenList328
-			.oddEvenList(ListNode.CreateListByArr(new int[]{1, 2, 3, 4, 5}));
-		res = oddEvenList328.oddEvenList(ListNode.CreateListByArr(new int[]{}));
+			.oddEvenList(ListNode.createListByArr(new int[]{1, 2, 3, 4, 5}));
+		res = oddEvenList328.oddEvenList(ListNode.createListByArr(new int[]{}));
 	}
 
 	public ListNode oddEvenList(ListNode head) {

@@ -5,8 +5,8 @@ import Algorithm.Utils.ListNode;
 public class LinkedListCycleII142 {
 
     public static void main(String[] args) {
-        ListNode listNode = ListNode.CreateListByArr(new int[]{3, 2, 0, -1});
-        ListNode listNode1 = ListNode.CreateListByArr(new int[]{1, 2});
+        ListNode listNode = ListNode.createListByArr(new int[]{3, 2, 0, -1});
+        ListNode listNode1 = ListNode.createListByArr(new int[]{1, 2});
         listNode.next.next.next.next = listNode.next;
         LinkedListCycleII142 linkedListCycleII142 = new LinkedListCycleII142();
         ListNode res = linkedListCycleII142.detectCycle(listNode);

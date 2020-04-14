@@ -6,12 +6,12 @@ public class AddTwoNumbers2 {
 
     public static void main(String[] args) {
         AddTwoNumbers2 addTwoNumbers2 = new AddTwoNumbers2();
-        addTwoNumbers2.addTwoNumbers(ListNode.CreateListByArr(new int[]{2, 4, 3}),
-            ListNode.CreateListByArr(new int[]{5, 6, 4}));
-        addTwoNumbers2.addTwoNumbers(ListNode.CreateListByArr(new int[]{5}),
-            ListNode.CreateListByArr(new int[]{5}));
-        addTwoNumbers2.addTwoNumbers(ListNode.CreateListByArr(new int[]{1}),
-            ListNode.CreateListByArr(new int[]{9, 9}));
+        addTwoNumbers2.addTwoNumbers(ListNode.createListByArr(new int[]{2, 4, 3}),
+            ListNode.createListByArr(new int[]{5, 6, 4}));
+        addTwoNumbers2.addTwoNumbers(ListNode.createListByArr(new int[]{5}),
+            ListNode.createListByArr(new int[]{5}));
+        addTwoNumbers2.addTwoNumbers(ListNode.createListByArr(new int[]{1}),
+            ListNode.createListByArr(new int[]{9, 9}));
     }
 
     /**

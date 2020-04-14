@@ -12,7 +12,7 @@ public class LinkedListComponents817 {
 	 */
 	public static void main(String[] args) {
 		LinkedListComponents817 linkedListComponents817 = new LinkedListComponents817();
-		ListNode node = ListNode.CreateListByArr(new int[]{0, 1, 2, 3});
+		ListNode node = ListNode.createListByArr(new int[]{0, 1, 2, 3});
 		int i = linkedListComponents817.numComponents(node, new int[]{0, 1, 3});
 	}
 

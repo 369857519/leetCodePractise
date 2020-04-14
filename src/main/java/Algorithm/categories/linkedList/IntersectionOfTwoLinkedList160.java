@@ -6,9 +6,9 @@ public class IntersectionOfTwoLinkedList160 {
 
     public static void main(String[] args) {
         IntersectionOfTwoLinkedList160 intersectionOfTwoLinkedList160 = new IntersectionOfTwoLinkedList160();
-        ListNode common = ListNode.CreateListByArr(new int[]{1, 2, 3, 4});
-        ListNode headA = ListNode.CreateListByArr(new int[]{5, 7});
-        ListNode headB = ListNode.CreateListByArr(new int[]{7, 9, 0});
+        ListNode common = ListNode.createListByArr(new int[]{1, 2, 3, 4});
+        ListNode headA = ListNode.createListByArr(new int[]{5, 7});
+        ListNode headB = ListNode.createListByArr(new int[]{7, 9, 0});
         headA.next.next = common;
         headB.next.next.next = common;
         intersectionOfTwoLinkedList160.getIntersectionNode(headA, headB);

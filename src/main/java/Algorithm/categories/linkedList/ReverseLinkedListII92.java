@@ -7,12 +7,12 @@ public class ReverseLinkedListII92 {
     public static void main(String[] args) {
         ReverseLinkedListII92 reverseLinkedListII92 = new ReverseLinkedListII92();
         ListNode node = reverseLinkedListII92
-            .reverseBetween(ListNode.CreateListByArr(new int[]{1, 2, 3, 4, 5}), 2, 4);
-        node = reverseLinkedListII92.reverseBetween(ListNode.CreateListByArr(new int[]{1}), 1, 1);
+            .reverseBetween(ListNode.createListByArr(new int[]{1, 2, 3, 4, 5}), 2, 4);
+        node = reverseLinkedListII92.reverseBetween(ListNode.createListByArr(new int[]{1}), 1, 1);
         node = reverseLinkedListII92
-            .reverseBetween(ListNode.CreateListByArr(new int[]{1, 2}), 1, 1);
+            .reverseBetween(ListNode.createListByArr(new int[]{1, 2}), 1, 1);
         node = reverseLinkedListII92
-            .reverseBetween(ListNode.CreateListByArr(new int[]{3, 4}), 1, 2);
+            .reverseBetween(ListNode.createListByArr(new int[]{3, 4}), 1, 2);
 
     }
 

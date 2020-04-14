@@ -14,8 +14,8 @@ public class MergeTwoList21 {
     public static void main(String[] args) {
         MergeTwoList21 mergeTwoList21 = new MergeTwoList21();
         ListNode listNode = mergeTwoList21
-            .mergeTwoLists(ListNode.CreateListByArr(new int[]{1, 2, 4}),
-                ListNode.CreateListByArr(new int[]{1, 3, 4}));
+            .mergeTwoLists(ListNode.createListByArr(new int[]{1, 2, 4}),
+                ListNode.createListByArr(new int[]{1, 3, 4}));
     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
