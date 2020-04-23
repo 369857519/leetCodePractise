@@ -23,37 +23,35 @@ public class AverageArray {
         int lastSmallerIndex = 0;
 
         for (int i = 0; i < array.length; i++) {
-            //目前值的大于average,需要在之前中一些坑填进去
-            while (array[i] > average) {
-                //找到第一个小于average的
-                while (array[lastSmallerIndex] >= average) {
+            //i必须要分出的情况
+            while (array[i] > average&&lastSmallerIndex<array.length) {
+                //lastBigger必须要分出的情况
+                while (lastSmallerIndex < array.length && array[lastSmallerIndex] >= average) {
                     lastSmallerIndex++;
                 }
-
-                errorValue = move(array, i, lastSmallerIndex, average, errorValue);
+                move(array, i, lastSmallerIndex,average);
             }
 
-            //目前的值小于average，需要在前面找一些大于average的填过来
-            while (array[i] < average) {
-                while (array[lastBiggerIndex] <= average) {
+            //i必须要分入的情况
+            while (array[i] < average&&lastBiggerIndex<array.length) {
+                while (lastBiggerIndex < array.length && array[lastBiggerIndex] <= average) {
                     lastBiggerIndex++;
                 }
-                errorValue = move(array, lastBiggerIndex, i, average, errorValue);
+                move(array, lastBiggerIndex, i, average);
             }
         }
+        //抹平误差
     }
 
-    public int move(int[] array, int bigger, int smaller, int average, int errorValue) {
-        //优先解决errorValue
-        if (errorValue != 0 && array[bigger] > average + 1) {
-            average++;
-            errorValue--;
+    public void move(int[] array, int bigger, int smaller, int average) {
+        if (bigger >= array.length || smaller >= array.length) {
+            return;
         }
+        //开始挪动
         int num = Math.min(array[bigger] - average, average - array[smaller]);
         array[bigger] -= num;
         array[smaller] += num;
         System.out.println(bigger + "->" + smaller + ":" + num);
-        return errorValue;
     }
 
 }
