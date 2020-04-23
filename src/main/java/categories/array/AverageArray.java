@@ -5,7 +5,7 @@ public class AverageArray {
     public static void main(String[] args) {
         //处理不为0的情况
         AverageArray averageArray = new AverageArray();
-        averageArray.rearrange(new int[]{500, 2, 22, 5});
+        averageArray.rearrange(new int[]{502, 2, 22, 5});
         averageArray.rearrange(new int[]{500, 2, 22, 4, 22, 11, 2, 500});
 
     }
@@ -24,16 +24,16 @@ public class AverageArray {
 
         for (int i = 0; i < array.length; i++) {
             //i必须要分出的情况
-            while (array[i] > average&&lastSmallerIndex<array.length) {
+            while (array[i] > average && lastSmallerIndex < array.length) {
                 //lastBigger必须要分出的情况
                 while (lastSmallerIndex < array.length && array[lastSmallerIndex] >= average) {
                     lastSmallerIndex++;
                 }
-                move(array, i, lastSmallerIndex,average);
+                move(array, i, lastSmallerIndex, average);
             }
 
             //i必须要分入的情况
-            while (array[i] < average&&lastBiggerIndex<array.length) {
+            while (array[i] < average && lastBiggerIndex < array.length) {
                 while (lastBiggerIndex < array.length && array[lastBiggerIndex] <= average) {
                     lastBiggerIndex++;
                 }
@@ -41,6 +41,18 @@ public class AverageArray {
             }
         }
         //抹平误差
+        if (errorValue > 0) {
+            lastSmallerIndex = 0;
+            for (int i = 0; i < array.length; i++) {
+                while (lastSmallerIndex < array.length && array[i] > average + 1) {
+                    while (lastSmallerIndex < array.length
+                        && array[lastSmallerIndex] >= average + 1) {
+                        lastSmallerIndex++;
+                    }
+                    move(array, i, lastSmallerIndex, average + 1);
+                }
+            }
+        }
     }
 
     public void move(int[] array, int bigger, int smaller, int average) {
