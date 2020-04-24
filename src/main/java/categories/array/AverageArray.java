@@ -1,5 +1,8 @@
 package categories.array;
 
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicStampedReference;
+
 public class AverageArray {
 
     public static void main(String[] args) {
@@ -7,7 +10,8 @@ public class AverageArray {
         AverageArray averageArray = new AverageArray();
         averageArray.rearrange(new int[]{502, 2, 22, 5});
         averageArray.rearrange(new int[]{500, 2, 22, 4, 22, 11, 2, 500});
-
+        AtomicStampedReference<Integer> integerAtomicReference=new AtomicStampedReference<>(1,1);
+        integerAtomicReference.compareAndSet(1,2,1,2);
     }
 
     public void rearrange(int[] array) {
