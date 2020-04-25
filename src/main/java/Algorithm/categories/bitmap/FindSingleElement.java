@@ -1,4 +1,4 @@
-package categories.bitmap;
+package Algorithm.categories.bitmap;
 
 public class FindSingleElement {
 

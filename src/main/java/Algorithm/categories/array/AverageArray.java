@@ -1,6 +1,5 @@
-package categories.array;
+package Algorithm.categories.array;
 
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicStampedReference;
 
 public class AverageArray {

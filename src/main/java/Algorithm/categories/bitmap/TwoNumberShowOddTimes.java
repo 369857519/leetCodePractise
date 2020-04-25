@@ -1,4 +1,4 @@
-package categories.bitmap;
+package Algorithm.categories.bitmap;
 
 import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.function.IntBinaryOperator;
