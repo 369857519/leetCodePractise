@@ -13,7 +13,6 @@ public class LongestSubstringWithoutRepeating3 {
     }
 
     public int lengthOfLongestSubstring(String s) {
-
         Set<Character> set = new HashSet<>();
         int left = 0;
         int resLength = 0;

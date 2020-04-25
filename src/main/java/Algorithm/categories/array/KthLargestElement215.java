@@ -26,25 +26,25 @@ public class KthLargestElement215 {
 		return heap.isEmpty() ? -1 : heap.poll();
 	}
 
-	//堆或者快速选择
-	public int findKthLargestWithHeap(int[] nums, int k) {
-		Heap heap = new Heap(k);
-
-		for (int i = 0; i < nums.length; i++) {
-			boolean res = heap.insert(nums[i]);
-			if (!res) {
-				heap.deleteMax();
-				heap.insert(nums[i]);
-			}
-		}
-
-		int res = 0;
-		for (int i = 0; i < k; i++) {
-			res = heap.deleteMax();
-		}
-
-		return res;
-	}
+//	//堆或者快速选择
+//	public int findKthLargestWithHeap(int[] nums, int k) {
+//		Heap heap = new Heap(k);
+//
+//		for (int i = 0; i < nums.length; i++) {
+//			boolean res = heap.insert(nums[i]);
+//			if (!res) {
+//				heap.deleteMax();
+//				heap.insert(nums[i]);
+//			}
+//		}
+//
+//		int res = 0;
+//		for (int i = 0; i < k; i++) {
+//			res = heap.deleteMax();
+//		}
+//
+//		return res;
+//	}
 
 
 }
