@@ -1,4 +1,4 @@
-package Concurrent.JUC;
+package concurrent.JUC;
 
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
