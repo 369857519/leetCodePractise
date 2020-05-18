@@ -15,19 +15,22 @@ public class ExecutorsTest {
 
     public static void main(String[] args) {
         ExecutorService executorService=new ThreadPoolExecutor(10, 20, 100, TimeUnit.SECONDS,
-            new LinkedBlockingDeque<>(1000), new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                Thread t = new Thread(r);
+            new LinkedBlockingDeque<>(1000), (runnable)->{
+                Thread t = new Thread(runnable);
                 t.setName("lalala" + atomicInteger.incrementAndGet());
                 return t;
+        },(runnable,executor)->{
+            //10分钟后再run试一下
+        });
+
+        executorService.submit(()->{
+           System.out.println("start task ");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        }, new RejectedExecutionHandler() {
-            @Override
-            public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-                //两种选择，让另外一个线程池处理
-                //抛弃，报一个log
-            }
+            System.out.println();
         });
     }
 }
