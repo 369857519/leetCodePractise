@@ -33,15 +33,16 @@ public class Regx10 {
                     }
 
                     //p-1长度的可以被匹配
-                    int iMinorsOne = record[i - 1][j];
                     if (pc[i] == '*') {
                         record[i][j] = 1;
                     }
                     //s-1长度可以被匹配
                     int jMinorsOne = record[i][j - 1];
-                    if (pc[i] == '*') {
-                        if (sc[j] == pc[i - 1] || pc[i - 1] == '.') {
-                            record[i][j] = 1;
+                    if(j-1<0||record[i][j-1]==1){
+                        if (pc[i] == '*') {
+                            if (sc[j] == pc[i - 1] || pc[i - 1] == '.') {
+                                record[i][j] = 1;
+                            }
                         }
                     }
                 }
