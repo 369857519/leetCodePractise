@@ -1,4 +1,4 @@
-package Singleton;
+package designPattern.Singleton;
 
 public class HolderSingleton {
     private static class HolderSingletonHolder{

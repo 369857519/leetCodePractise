@@ -1,6 +1,4 @@
-package Proxy;
-
-import java.lang.reflect.Proxy;
+package designPattern.Proxy;
 
 public class ProxyTest {
     public static void main(String[] args) {

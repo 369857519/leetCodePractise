@@ -1,4 +1,4 @@
-package Proxy;
+package designPattern.Proxy;
 
 public class MyLover implements Kissable {
     @Override

@@ -1,4 +1,4 @@
-package Singleton;
+package designPattern.Singleton;
 
 public class LazySingleton {
     //加入LazySingleton实例化过程中有一堆属性也需要实例化，
