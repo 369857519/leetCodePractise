@@ -156,5 +156,12 @@ public class BasicType {
          */
         new HashMap();
 
+        Collections.sort(new ArrayList<Integer>());
+        Collections.binarySearch(new ArrayList<>(),10);
+        Collections.shuffle(new ArrayList<>());
+        Collections.reverse(new ArrayList<>());
+        int[] array=new int[]{1,2,3};
+        List<Integer> integers= Arrays.asList(1,2,3);
+        integers.toArray();
     }
 }
