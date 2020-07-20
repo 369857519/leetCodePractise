@@ -1,4 +1,4 @@
-package basics.IO;
+package basics.IO.inputoutputstream;
 
 import java.io.*;
 

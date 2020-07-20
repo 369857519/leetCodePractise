@@ -10,16 +10,17 @@ public class SynchronizeTest {
 
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
-                synchronized (testLock){
-                    for(int j=0;j<100;j++){
+                synchronized (testLock) {
+                    for (int j = 0; j < 100; j++) {
                         counter++;
-                        System.out.println(j);
+                        System.out.println(Thread.currentThread().getName() + " num:" + j);
                     }
-                    if(counter>500){
+
+                    if (counter > 500) {
                         return;
                     }
                 }
-            }).start();
+            }, "thread" + i).start();
         }
     }
 }
