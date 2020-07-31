@@ -1,4 +1,4 @@
-package Algorithm.categories.array;
+package algorithm.categories.array;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
