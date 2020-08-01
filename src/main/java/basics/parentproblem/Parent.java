@@ -1,4 +1,4 @@
-package basics.ParentProblem;
+package basics.parentproblem;
 
 public class Parent {
     public Parent() {

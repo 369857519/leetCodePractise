@@ -1,12 +1,12 @@
 package basics;
 
-public class InnerTest {
+public class InnerClassTest {
     private int id=0;
     public static int sId=10;
     public class Inner{
         private int id=1;
         public int getWrapperId(){
-            return InnerTest.this.id;
+            return InnerClassTest.this.id;
         }
         public int getInnerId(){
             return id;
@@ -25,7 +25,7 @@ public class InnerTest {
         }
     }
 
-    public int methodInnerClass(int num){
+    public int methodInnerClass(final int num){
         class InnerClass{
             public int getWrapperId(int a){
                 return a+num;
@@ -36,17 +36,17 @@ public class InnerTest {
 
     public static void main(String[] args) {
         //普通内部类
-        InnerTest wrapper=new InnerTest();
-        InnerTest.Inner inner= wrapper.new Inner();
+        InnerClassTest wrapper=new InnerClassTest();
+        InnerClassTest.Inner inner= wrapper.new Inner();
         wrapper.id=2;
         System.out.println(inner.getWrapperId());
         System.out.println(inner.getInnerId());
         System.out.println(inner.getWrapperStatic());
 
         //静态内部类
-        StaticInner staticInner=new InnerTest.StaticInner();
+        StaticInner staticInner=new InnerClassTest.StaticInner();
         staticInner.getWrapperId();
-        InnerTest.StaticInner.getWrapperStaticId();
+        InnerClassTest.StaticInner.getWrapperStaticId();
 
         //方法内部类
         wrapper.methodInnerClass(10);

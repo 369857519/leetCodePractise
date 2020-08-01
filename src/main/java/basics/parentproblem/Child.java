@@ -1,4 +1,4 @@
-package basics.ParentProblem;
+package basics.parentproblem;
 
 public class Child extends Parent {
     public static void main(String[] args) {
