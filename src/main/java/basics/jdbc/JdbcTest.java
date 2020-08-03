@@ -1,5 +1,7 @@
 package basics.jdbc;
 
+import com.mysql.cj.jdbc.JdbcConnection;
+
 import javax.swing.plaf.IconUIResource;
 import java.sql.*;
 
@@ -18,10 +20,7 @@ public class JdbcTest {
     java.sql.ResultSetMetaData 元数据
      */
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Connection con= DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/tran_test?serverTimezone=Asia/Shanghai",
-                "root",
-                "root");
+        Connection con= PoolTest.getDBCP().getConnection();
         String sql = "select * from student";
         Statement statement=con.createStatement();
         Statement statement1=con.prepareStatement(sql);
