@@ -56,3 +56,47 @@ explain select * from people_info where name in (select distinct class_info.name
 #--DRIVED: from 子据中出现的子查询
 #--UNCHCHEABLE SUBQUERY：表示子查询不能被缓存
 #--UNCACHEABLE UNION： 表示union的结果不能被缓存
+
+#table 表示正在访问的表名
+#1、物理表名或者别名 2、derivedN的形式，表示产生了衍生表 3、union result表示有一些id参与了union
+
+#type 表示访问类型
+# system > const > eq_ref > ref > fulltext > ref_or_null > index_merge > unique_subquery > index_subquery > range > index > ALL
+#--all 全表扫描
+explain select * from people_info;
+#--index 1、查询覆盖索引，只需要在索引拿数据即可 2、使用索引进行了排序，避免了重排序
+explain select id from people_info;
+#--index_subquery 利用子查询利用了索引
+#--unique_subquery 子查询使用了唯一索引
+explain select id from class_info where id in (select class_id from people_info where id>4);
+#--ref使用了非唯一索引进行数据查找
+create index idx_name on people_info(name);
+#--ref_or_null 对于某个关联条件既使用了
+explain select * from people_info where name is null or name='ehfh';
+#--eq_ref
+create unique index name on class_info(name);
+explain select * from people_info,class_info where people_info.name=class_info.name;
+#--const: 表示表最多有一个匹配行
+explain select * from people_info where id='1';
+#--system 表示表中只有一行记录，系统信息，变量等
+
+#possible_keys 一个或多个，查询涉及的字段上若存在索引，则被列出，但是不一定实际使用
+
+#key 实际使用的索引，如果为null，则没有使用索引，如果使用了覆盖索引，则
+explain select name from class_info where name='一班';
+
+#key_len 查询中使用索引的字节数，不失精度清情况下，越短越好
+
+#ref 显示那一列被引用了，可能是个const
+
+#rows 大致需要读取的行数
+
+#filtered 返回行占读到行数的百分比
+
+#extra
+#--using filesort 无法索引排序，进行了重排序
+#--using temprorary 建立临时表存储了结果
+#--using index 覆盖索引
+#--using where 使用where条件过滤
+#--using join buffer
+#--impossible where where总是false
