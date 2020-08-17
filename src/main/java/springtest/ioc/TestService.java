@@ -1,4 +1,4 @@
-package spring.ioc;
+package springtest.ioc;
 
 import org.springframework.stereotype.Service;
 
