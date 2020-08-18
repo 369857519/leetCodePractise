@@ -8,11 +8,13 @@ import springtest.PractiseConfiguration;
 @Component
 public class MyCalculator {
     public static void main(String[] args) {
-        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(PractiseConfiguration.class);
-        MyCalculator myCalculator= applicationContext.getBean(MyCalculator.class);
-        myCalculator.add(1,2);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(PractiseConfiguration.class);
+        MyCalculator myCalculator = applicationContext.getBean(MyCalculator.class);
+        myCalculator.add(1, 2);
     }
+
     public int add(int i, int j) {
+        i = i / j;
         return i + j;
     }
 }
